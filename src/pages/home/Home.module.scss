@@ -1,14 +1,5 @@
 .hero {
   flex-grow: 1;
-  background-image: url('../../../public/hero.png');
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  padding: 2rem 1rem;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 
   &__interior {
     max-width: 600px;
