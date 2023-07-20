@@ -1,0 +1,41 @@
+.about {
+  .hero {
+    height: 300px;
+  }
+
+  .section {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+
+    &__title {
+      font-size: 2rem;
+    }
+
+    &__paragraph {
+      font-size: 1rem;
+    }
+  }
+
+  .box {
+    background-color: #ffcc8d;
+    padding: 1rem;
+    border-radius: 0.5rem;
+
+    &__paragraph {
+      font-size: 1.5rem;
+    }
+
+    &__button {
+      background-color: #161616;
+      color: #fff;
+      border: none;
+      border-radius: 0.5rem;
+      margin-top: 1rem;
+      padding: 0.5rem;
+    }
+  }
+}
