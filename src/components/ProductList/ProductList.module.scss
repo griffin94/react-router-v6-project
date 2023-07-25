@@ -1,0 +1,49 @@
+.productList {
+  list-style-type: none;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem 1rem;
+}
+
+.item {
+  display: flex;
+  flex-direction: column;
+
+  &__img {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    border-radius: 5px;
+  }
+
+  &__header {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 0;
+  }
+
+  &__name,
+  &__price {
+    font-size: 20px;
+    font-weight: bold;
+  }
+
+  &__badge {
+    align-self: flex-start;
+    padding: 0.5rem 1rem;
+    border-radius: 5px;
+    font-weight: bold;
+    color: #FFEAD0;
+    text-transform: capitalize;
+
+    &.simple {
+      background-color: #e17654;
+    }
+    &.rugged {
+      background-color: #115e59;
+    }
+    &.luxury {
+      background-color: #161616;
+    }
+  }
+}
