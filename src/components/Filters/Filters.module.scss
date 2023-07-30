@@ -1,0 +1,27 @@
+.filters {
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  padding: 1rem 0;
+
+  .resetButton {
+    text-decoration: underline;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+  }
+}
+
+.button {
+  padding: 0.5rem 1rem;
+  background-color: #ffead0;
+  border: 3px solid #ffead0;
+  border-radius: 5px;
+  text-align: center;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+
+  &.active {
+    background-color: transparent;
+  }
+}
