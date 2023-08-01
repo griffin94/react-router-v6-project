@@ -1,12 +1,14 @@
 export const ROUTES = {
   HOME: 'HOME',
   ABOUT: 'ABOUT',
+  VAN: 'VAN',
   VANS: 'VANS',
 };
 
 export const PATHS = {
   [ROUTES.HOME]: '/',
   [ROUTES.ABOUT]: '/about',
+  [ROUTES.VAN]: '/vans/:id',
   [ROUTES.VANS]: '/vans',
 };
 
