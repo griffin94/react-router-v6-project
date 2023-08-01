@@ -4,7 +4,11 @@ import { RouterProvider } from 'react-router-dom';
 import router from './pages';
 import './main.scss';
 import 'bootstrap-icons/font/bootstrap-icons.css';
-import './mocks/server';
+
+if (import.meta.env.DEV) {
+  const { worker } = await import('./mocks/browser');
+  await worker.start();
+}
 
 ReactDOM.createRoot(document.body).render(
   <React.StrictMode>

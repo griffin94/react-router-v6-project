@@ -1,6 +1,5 @@
 import {
   Route,
-  Routes,
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
@@ -8,7 +7,8 @@ import { ROUTES, PATHS, NAMES } from './constans';
 import { Dashboard } from './dashboard';
 import { About } from './about';
 import { Home } from './home';
-import { Vans } from './vans';
+import { Van } from './van';
+import { Vans, loader as vansLoader } from './vans';
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -25,8 +25,13 @@ const router = createBrowserRouter(
         element={<About />}
       />
       <Route
+        path={PATHS[ROUTES.VAN]}
+        element={<Van />}
+      />
+      <Route
         path={PATHS[ROUTES.VANS]}
         element={<Vans />}
+        loader={vansLoader}
       />
     </Route>
   )

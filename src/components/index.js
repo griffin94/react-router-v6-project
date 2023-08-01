@@ -1,3 +1,4 @@
+export { default as Filters } from './Filters/Filters';
 export { default as Footer } from './Footer/Footer';
 export { default as Hero } from './Hero/Hero';
 export { default as Header } from './Header/Header';

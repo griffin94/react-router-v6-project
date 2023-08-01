@@ -10,12 +10,12 @@ const Dashboard = () => {
     <div className={cx(cs.page)}>
       <Header title='#VANLIFE'>
         <Nav title='#VANLIFE'>
-          {Object.entries(PATHS).map(([ROUTE, PATH]) => (
+          {Object.entries(NAMES).map(([KEY, NAME]) => (
             <Nav.Item
-              to={PATH}
-              key={PATH}
+              to={PATHS[KEY]}
+              key={PATHS[KEY]}
             >
-              {NAMES[ROUTE]}
+              {NAME}
             </Nav.Item>
           ))}
         </Nav>
