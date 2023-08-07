@@ -35,13 +35,13 @@ const MenuIcon = () => (
   </svg>
 );
 
-const Nav = ({ children, title }) => {
+const Nav = ({ children, onlyDesktopView, onlyMobileView, title }) => {
   const [open, setOpen] = useState(false);
   const { isMobileView } = useViewport();
 
   return (
     <>
-      {isMobileView ? (
+      {onlyMobileView || (!onlyDesktopView && isMobileView) ? (
         <>
           <button
             className={cx(cs.nav__button)}
