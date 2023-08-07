@@ -1,12 +1,19 @@
 import React from 'react';
-import { Await, useLoaderData, useSearchParams } from 'react-router-dom';
+import {
+  Await,
+  useLoaderData,
+  useNavigate,
+  useSearchParams,
+} from 'react-router-dom';
 import { Filters, ProductList } from '../../components';
+import { PATHS, ROUTES } from '../';
 import cs from './Vans.module.scss';
 import cx from 'classnames';
 
 const Vans = () => {
-  let [searchParams, setSearchParams] = useSearchParams();
+  const [searchParams, setSearchParams] = useSearchParams();
   const { data } = useLoaderData();
+  const navigate = useNavigate();
 
   const setURLSearchParams = (key, value) =>
     setSearchParams((prevSearchParams) => {
@@ -35,6 +42,7 @@ const Vans = () => {
               {vans.map(({ id, ...van }) => (
                 <ProductList.Item
                   key={id}
+                  onClick={() => navigate(`${PATHS[ROUTES.VANS]}/${id}`)}
                   {...van}
                 />
               ))}
