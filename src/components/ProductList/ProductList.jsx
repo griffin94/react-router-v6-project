@@ -1,4 +1,3 @@
-import React from 'react';
 import cs from './ProductList.module.scss';
 import cx from 'classnames';
 
@@ -6,13 +5,18 @@ const ProductList = ({ children }) => (
   <ul className={cx(cs.productList)}>{children}</ul>
 );
 
-const Item = ({ imageUrl, name, price, type }) => (
+const Item = ({ imageUrl, name, onClick, price, type }) => (
   <li className={cx(cs.item)}>
-    <img
-      className={cx(cs.item__img)}
-      src={imageUrl}
-      alt={'dsa'}
-    />
+    <div
+      className={cx(cs.item__imgContainer)}
+      onClick={onClick}
+    >
+      <img
+        className={cx(cs.item__img)}
+        src={imageUrl}
+        alt={name}
+      />
+    </div>
     <div className={cx(cs.item__header)}>
       <span className={cx(cs.item__name)}>{name}</span>
       <span>
