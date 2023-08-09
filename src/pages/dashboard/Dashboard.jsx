@@ -3,19 +3,19 @@ import { Outlet } from 'react-router-dom';
 import { Footer, Header, Nav } from '../../components';
 import cs from './Dashboard.module.scss';
 import cx from 'classnames';
-import { PATHS, NAMES } from '..';
+import { MAIN_NAV } from '..';
 
 const Dashboard = () => {
   return (
     <div className={cx(cs.page)}>
       <Header title='#VANLIFE'>
         <Nav title='#VANLIFE'>
-          {Object.entries(NAMES).map(([KEY, NAME]) => (
+          {MAIN_NAV.map(({path, name}) => (
             <Nav.Item
-              to={PATHS[KEY]}
-              key={PATHS[KEY]}
+              to={path}
+              key={path}
             >
-              {NAME}
+              {name}
             </Nav.Item>
           ))}
         </Nav>

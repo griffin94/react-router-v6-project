@@ -3,11 +3,11 @@ import {
   createBrowserRouter,
   createRoutesFromElements,
 } from 'react-router-dom';
-import { ROUTES, PATHS, NAMES } from './constans';
+import { ROUTES, PATHS } from './constans';
 import { Dashboard } from './dashboard';
 import { About } from './about';
 import { Home } from './home';
-import { Van } from './van';
+import { Details, Photos, Pricing, Van } from './van';
 import { Vans, loader as vansLoader } from './vans';
 
 const router = createBrowserRouter(
@@ -27,7 +27,20 @@ const router = createBrowserRouter(
       <Route
         path={PATHS[ROUTES.VAN]}
         element={<Van />}
-      />
+      >
+        <Route
+          index
+          element={<Details />}
+        />
+        <Route
+          path={PATHS[ROUTES.PHOTOS]}
+          element={<Photos />}
+        />
+        <Route
+          path={PATHS[ROUTES.PRICING]}
+          element={<Pricing />}
+        />
+      </Route>
       <Route
         path={PATHS[ROUTES.VANS]}
         element={<Vans />}
@@ -37,5 +50,5 @@ const router = createBrowserRouter(
   )
 );
 
-export { PATHS, ROUTES, NAMES };
+export * from './constans';
 export default router;

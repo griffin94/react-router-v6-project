@@ -6,6 +6,8 @@ $gap: 1rem;
   flex-direction: row;
   flex-wrap: wrap;
   gap: 2rem $gap;
+  margin: 0;
+  padding: 0;
 }
 
 .item {
