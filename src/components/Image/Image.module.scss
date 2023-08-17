@@ -1,0 +1,21 @@
+.container {
+  overflow: hidden;
+  border-radius: 5px;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+
+  &.clickable {
+    cursor: pointer;
+  }
+
+  &.hover {
+    transition: transform 0.15s ease-in-out;
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+}
