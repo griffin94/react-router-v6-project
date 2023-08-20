@@ -5,10 +5,9 @@ import {
   useNavigate,
   useSearchParams,
 } from 'react-router-dom';
-import { Filters, ProductList } from '../../components';
+import { Card, Col, Container, Row, Stack } from 'react-bootstrap';
+import { Badge, Filters, Image, Price } from '../../components';
 import { PATHS, ROUTES } from '../';
-import cs from './Vans.module.scss';
-import cx from 'classnames';
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -29,7 +28,7 @@ const Vans = () => {
     });
 
   return (
-    <div className={cx(cs.page)}>
+    <Container className='p-4'>
       <Filters onSetFilter={(values) => setURLSearchParams('type', values)}>
         <Filters.Button name='simple'>Simple</Filters.Button>
         <Filters.Button name='luxury'>Luxury</Filters.Button>
@@ -38,19 +37,42 @@ const Vans = () => {
       <React.Suspense fallback={<h1>Loading...</h1>}>
         <Await resolve={data}>
           {({ vans }) => (
-            <ProductList>
-              {vans.map(({ id, ...van }) => (
-                <ProductList.Item
+            <Row className='g-3'>
+              {vans.map(({ id, imageUrl, name, price, type }) => (
+                <Col
                   key={id}
-                  onClick={() => navigate(`${PATHS[ROUTES.VANS]}/${id}`)}
-                  {...van}
-                />
+                  xs={12}
+                  sm={6}
+                  md={4}
+                  lg={3}
+                >
+                  <Card>
+                    <Image
+                      alt={name}
+                      onClick={() => navigate(`${PATHS[ROUTES.VANS]}/${id}`)}
+                      src={imageUrl}
+                      hover
+                    />
+                    <Card.Body>
+                      <Stack
+                        bsPrefix='hstack'
+                        className='justify-content-between mb-2'
+                      >
+                        <Card.Title className='m-0'>{name}</Card.Title>
+                        <Price>{price}</Price>
+                      </Stack>
+                      <Card.Text>
+                        <Badge type={type} />
+                      </Card.Text>
+                    </Card.Body>
+                  </Card>
+                </Col>
               ))}
-            </ProductList>
+            </Row>
           )}
         </Await>
       </React.Suspense>
-    </div>
+    </Container>
   );
 };
 
