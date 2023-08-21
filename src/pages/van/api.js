@@ -1,4 +1,4 @@
-export const getVans = async ({ request, params }) => {
+export const getVan = async ({ request, params }) => {
   const response = await fetch(request.url, {
     signal: request.signal,
     headers: {
@@ -14,4 +14,4 @@ export const getVans = async ({ request, params }) => {
   return data;
 };
 
-export const loader = (props) => ({ vans: getVans(props) });
+export const loader = (props) => ({ van: getVan(props) });

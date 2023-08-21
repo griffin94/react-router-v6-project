@@ -11,7 +11,7 @@ import { PATHS, ROUTES } from '../';
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { data } = useLoaderData();
+  const { vans } = useLoaderData();
   const navigate = useNavigate();
 
   const setURLSearchParams = (key, value) =>
@@ -35,8 +35,8 @@ const Vans = () => {
         <Filters.Button name='rugged'>Rugged</Filters.Button>
       </Filters>
       <React.Suspense fallback={<h1>Loading...</h1>}>
-        <Await resolve={data}>
-          {({ vans }) => (
+        <Await resolve={vans}>
+          {(vans) => (
             <Row className='g-3'>
               {vans.map(({ id, imageUrl, name, price, type }) => (
                 <Col
