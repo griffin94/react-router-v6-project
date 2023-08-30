@@ -35,7 +35,13 @@ const MenuIcon = () => (
   </svg>
 );
 
-const Nav = ({ children, className, onlyDesktopView, onlyMobileView, title }) => {
+const Nav = ({
+  children,
+  className,
+  onlyDesktopView,
+  onlyMobileView,
+  title,
+}) => {
   const [open, setOpen] = useState(false);
   const { isMobileView } = useViewport();
 
@@ -88,9 +94,13 @@ const Nav = ({ children, className, onlyDesktopView, onlyMobileView, title }) =>
   );
 };
 
-const Item = ({ children, className, to }) => (
+const Item = ({ children, className, ...props }) => (
   <li className={className}>
-    <NavLink to={to}>{children}</NavLink>
+    <NavLink
+      {...props}
+    >
+      {children}
+    </NavLink>
   </li>
 );
 

@@ -7,15 +7,20 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
+}
 
-  &.clickable {
-    cursor: pointer;
-  }
+.auto {
+  max-width: 100%;
+  height: auto;
+}
 
-  &.hover {
-    transition: transform 0.15s ease-in-out;
-    &:hover {
-      transform: scale(1.1);
-    }
+.clickable {
+  cursor: pointer;
+}
+
+.hover {
+  transition: transform 0.15s ease-in-out;
+  &:hover {
+    transform: scale(1.1);
   }
 }

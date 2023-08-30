@@ -1,3 +1,7 @@
-const Name = ({ children }) => <span className='h3 fw-bold m-0'>{children}</span>;
+import cx from 'classnames';
+
+const Name = ({ children, variant = 'h3' }) => (
+  <span className={cx('fw-bold m-0', variant)}>{children}</span>
+);
 
 export default Name;

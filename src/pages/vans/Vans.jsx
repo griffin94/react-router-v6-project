@@ -6,12 +6,11 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import { Card, Col, Container, Row, Stack } from 'react-bootstrap';
-import { Badge, Filters, Image, Price } from '../../components';
-import { PATHS, ROUTES } from '../';
+import { Badge, Filters, Image, Price } from '@/components';
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
-  const { vans } = useLoaderData();
+  const { data } = useLoaderData();
   const navigate = useNavigate();
 
   const setURLSearchParams = (key, value) =>
@@ -35,7 +34,7 @@ const Vans = () => {
         <Filters.Button name='rugged'>Rugged</Filters.Button>
       </Filters>
       <React.Suspense fallback={<h1>Loading...</h1>}>
-        <Await resolve={vans}>
+        <Await resolve={data}>
           {(vans) => (
             <Row className='g-3'>
               {vans.map(({ id, imageUrl, name, price, type }) => (
@@ -49,7 +48,7 @@ const Vans = () => {
                   <Card>
                     <Image
                       alt={name}
-                      onClick={() => navigate(`${PATHS[ROUTES.VANS]}/${id}`)}
+                      onClick={() => navigate(id)}
                       src={imageUrl}
                       hover
                     />
