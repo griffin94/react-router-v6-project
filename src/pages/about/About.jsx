@@ -1,7 +1,7 @@
 import cs from './About.module.scss';
 import cx from 'classnames';
-import heroImg from '../../../public/hero_about.png';
-import { Hero } from '../../components';
+import heroImg from '/hero_about.png';
+import { Hero } from '@/components';
 
 const About = () => {
   return (

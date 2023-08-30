@@ -35,13 +35,19 @@ const MenuIcon = () => (
   </svg>
 );
 
-const Nav = ({ children, title }) => {
+const Nav = ({
+  children,
+  className,
+  onlyDesktopView,
+  onlyMobileView,
+  title,
+}) => {
   const [open, setOpen] = useState(false);
   const { isMobileView } = useViewport();
 
   return (
     <>
-      {isMobileView ? (
+      {onlyMobileView || (!onlyDesktopView && isMobileView) ? (
         <>
           <button
             className={cx(cs.nav__button)}
@@ -50,7 +56,7 @@ const Nav = ({ children, title }) => {
             <MenuIcon />
           </button>
           {createPortal(
-            <nav className={cx(cs.nav, open && cs.open)}>
+            <nav className={cx(cs.nav, open && cs.open, className)}>
               <div className={cx(cs.nav__header)}>
                 <h1>
                   <Link to='/'>{title}</Link>
@@ -74,7 +80,7 @@ const Nav = ({ children, title }) => {
           )}
         </>
       ) : (
-        <nav className={cx(cs.desktopNav)}>
+        <nav className={cx(cs.desktopNav, className)}>
           <ul className={cx(cs.desktopNav__list)}>
             {Children.map(children, (child) =>
               cloneElement(child, {
@@ -88,9 +94,13 @@ const Nav = ({ children, title }) => {
   );
 };
 
-const Item = ({ children, className, to }) => (
+const Item = ({ children, className, ...props }) => (
   <li className={className}>
-    <NavLink to={to}>{children}</NavLink>
+    <NavLink
+      {...props}
+    >
+      {children}
+    </NavLink>
   </li>
 );
 

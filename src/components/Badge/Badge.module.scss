@@ -1,0 +1,18 @@
+.badge {
+  align-self: flex-start;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  font-weight: bold;
+  color: #ffead0;
+  text-transform: capitalize;
+
+  &.simple {
+    background-color: #e17654;
+  }
+  &.rugged {
+    background-color: #115e59;
+  }
+  &.luxury {
+    background-color: #161616;
+  }
+}

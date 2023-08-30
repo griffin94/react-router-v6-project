@@ -34,6 +34,8 @@
 
   &__list {
     list-style-type: none;
+    margin: 0;
+    padding: 0;
   }
 
   &__item {
@@ -51,9 +53,19 @@
   &__list {
     list-style-type: none;
     display: flex;
+    margin: 0;
+    padding: 0;
   }
 
   &__item {
     padding: 0.5rem;
+
+    &:first-child {
+      padding-left: 0;
+    }
+
+    &:last-child {
+      padding-right: 0;
+    }
   }
 }
