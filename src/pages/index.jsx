@@ -18,8 +18,7 @@ import {
   HostVan,
   HostVans,
 } from './host';
-import { Van } from './van';
-import { Vans } from './vans';
+import { Van, Vans } from './vans';
 import { loader } from './api';
 
 // prettier-ignore
