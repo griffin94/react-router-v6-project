@@ -2,8 +2,8 @@ import { Children, cloneElement, useState } from 'react';
 import cs from './Filters.module.scss';
 import cx from 'classnames';
 
-const Filters = ({ children, onSetFilter }) => {
-  const [activeFilters, setActiveFilters] = useState([]);
+const Filters = ({ active = [], children, onSetFilter }) => {
+  const [activeFilters, setActiveFilters] = useState(active);
 
   const clearFilters = () =>
     setActiveFilters(() => {

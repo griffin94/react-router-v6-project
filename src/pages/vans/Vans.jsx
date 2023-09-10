@@ -28,7 +28,10 @@ const Vans = () => {
 
   return (
     <Container className='p-4'>
-      <Filters onSetFilter={(values) => setURLSearchParams('type', values)}>
+      <Filters
+        active={Array.from(searchParams.values())}
+        onSetFilter={(values) => setURLSearchParams('type', values)}
+      >
         <Filters.Button name='simple'>Simple</Filters.Button>
         <Filters.Button name='luxury'>Luxury</Filters.Button>
         <Filters.Button name='rugged'>Rugged</Filters.Button>
@@ -45,14 +48,22 @@ const Vans = () => {
                   md={4}
                   lg={3}
                 >
-                  <Card>
+                  <Card className='h-100'>
                     <Image
                       alt={name}
-                      onClick={() => navigate(id)}
+                      onClick={() =>
+                        navigate(id, {
+                          state: {
+                            search: searchParams.toString()
+                              ? '?' + searchParams.toString()
+                              : '',
+                          },
+                        })
+                      }
                       src={imageUrl}
                       hover
                     />
-                    <Card.Body>
+                    <Card.Body className='d-flex flex-column'>
                       <Stack
                         bsPrefix='hstack'
                         className='justify-content-between mb-2'
@@ -60,9 +71,10 @@ const Vans = () => {
                         <Card.Title className='m-0'>{name}</Card.Title>
                         <Price>{price}</Price>
                       </Stack>
-                      <Card.Text>
-                        <Badge type={type} />
-                      </Card.Text>
+                      <Badge
+                        className='mt-auto'
+                        type={type}
+                      />
                     </Card.Body>
                   </Card>
                 </Col>

@@ -1,10 +1,12 @@
 import React from 'react';
-import { Await, Link, useLoaderData } from 'react-router-dom';
+import { Await, Link, useLoaderData, useLocation } from 'react-router-dom';
 import { Container, Stack } from 'react-bootstrap';
 import { Badge, Image, Name, Price } from '@/components';
 
 const Van = () => {
   const { data } = useLoaderData();
+  const { state } = useLocation();
+
   return (
     <Container className='d-flex flex-column gap-4 p-4'>
       <React.Suspense fallback={<h1>Loading...</h1>}>
@@ -13,7 +15,7 @@ const Van = () => {
             <>
               <Link
                 className='text-decoration-underline'
-                to='..'
+                to={'..' + (state?.search || '')}
               >
                 <i class='bi bi-arrow-left-circle me-2'></i>
                 <span>Back to all vans</span>

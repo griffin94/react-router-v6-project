@@ -2,10 +2,11 @@ import React from 'react';
 import cs from './Badge.module.scss';
 import cx from 'classnames';
 
-const Badge = ({ type }) => (
+const Badge = ({ className, type }) => (
   <div
     className={cx(
       cs.badge,
+      className,
       {
         simple: cs.simple,
         rugged: cs.rugged,
