@@ -6,7 +6,7 @@ import {
   useSearchParams,
 } from 'react-router-dom';
 import { Card, Col, Container, Row, Stack } from 'react-bootstrap';
-import { Badge, Filters, Image, Price } from '@/components';
+import { Badge, Button, Filters, Image, Price } from '@/components';
 
 const Vans = () => {
   const [searchParams, setSearchParams] = useSearchParams();
@@ -32,9 +32,9 @@ const Vans = () => {
         active={Array.from(searchParams.values())}
         onSetFilter={(values) => setURLSearchParams('type', values)}
       >
-        <Filters.Button name='simple'>Simple</Filters.Button>
-        <Filters.Button name='luxury'>Luxury</Filters.Button>
-        <Filters.Button name='rugged'>Rugged</Filters.Button>
+        <Button name='simple' variant='orange'>Simple</Button>
+        <Button name='luxury' variant='green'>Luxury</Button>
+        <Button name='rugged' variant='black'>Rugged</Button>
       </Filters>
       <React.Suspense fallback={<h1>Loading...</h1>}>
         <Await resolve={data}>

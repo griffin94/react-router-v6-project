@@ -1,7 +1,7 @@
 import cs from './Home.module.scss';
 import cx from 'classnames';
 import heroImg from '/hero.png';
-import { Hero } from '@/components';
+import { Button, Hero } from '@/components';
 
 const Home = () => {
   return (
@@ -16,7 +16,7 @@ const Home = () => {
         Add adventure to your life by joining the #vanlife movement. Rent the
         perfect van to make your perfect road trip.
       </p>
-      <button className={cx(cs.hero__button)}>Find your van</button>
+      <Button variant='orange'>Find your van</Button>
     </Hero>
   );
 };

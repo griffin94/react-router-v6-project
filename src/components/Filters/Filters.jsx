@@ -40,16 +40,4 @@ const Filters = ({ active = [], children, onSetFilter }) => {
   );
 };
 
-const Button = ({ children, isActive, name, onClick }) => (
-  <button
-    className={cx(cs.button, isActive && cs.active)}
-    name={name}
-    onClick={onClick}
-  >
-    {children}
-  </button>
-);
-
-export default Object.assign(Filters, {
-  Button,
-});
+export default Filters;

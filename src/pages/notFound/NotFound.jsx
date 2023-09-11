@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
-import { Button, Container } from 'react-bootstrap';
+import { Container } from 'react-bootstrap';
+import { Button } from '@/components';
 import { PATHS, ROUTES } from '..';
 
 const NotFound = () => {
@@ -9,11 +10,9 @@ const NotFound = () => {
         Sorry, the page you were looking for was not found.
       </p>
       <Button
-        style={{
-          backgroundColor: '#ff8c38',
-        }}
-        href={PATHS[ROUTES.HOME]}
         as={Link}
+        to={PATHS[ROUTES.HOME]}
+        variant='black'
       >
         Return to home
       </Button>

@@ -1,7 +1,7 @@
 import cs from './About.module.scss';
 import cx from 'classnames';
 import heroImg from '/hero_about.png';
-import { Hero } from '@/components';
+import { Button, Hero } from '@/components';
 
 const About = () => {
   return (
@@ -27,7 +27,7 @@ const About = () => {
           <p className={cx(cs.box__paragraph)}>
             Your destination is waiting. Your van is ready.
           </p>
-          <button className={cx(cs.box__button)}>Explore our vans</button>
+          <Button variant='black'>Explore our vans</Button>
         </div>
       </section>
     </div>
