@@ -19,6 +19,8 @@ import {
   HostVans,
 } from './host';
 import { Van, Vans } from './vans';
+import { NotFound } from './notFound';
+import { Error } from './error';
 import { loader } from './api';
 
 // prettier-ignore
@@ -28,12 +30,12 @@ const router = createBrowserRouter(
       <Route index element={<Home />}/>
       <Route path={PATHS[ROUTES.ABOUT]} element={<About />}/>
       
-      <Route path={PATHS[ROUTES.VANS]}>
+      <Route path={PATHS[ROUTES.VANS]} errorElement={<Error />}>
         <Route index element={<Vans />} loader={loader}/>
         <Route path={PATHS[ROUTES.VAN]} element={<Van />} loader={loader}/>
       </Route>
 
-      <Route path={PATHS[ROUTES.HOST]} element={<Host />}>
+      <Route path={PATHS[ROUTES.HOST]} element={<Host />} errorElement={<Error />}>
         <Route index element={<HostDashboard />}/>
         <Route path={PATHS[ROUTES.HOST_INCOME]} element={<HostIncome />}/>
         <Route path={PATHS[ROUTES.HOST_REVIEWS]} element={<HostReviews />} loader={loader}/>
@@ -46,6 +48,7 @@ const router = createBrowserRouter(
           </Route>
         </Route>
       </Route>
+      <Route path={PATHS[ROUTES.NOT_FOUND]} element={<NotFound />} />
     </Route>
   )
 );

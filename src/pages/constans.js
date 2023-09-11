@@ -11,6 +11,7 @@ export const ROUTES = {
   HOST_VAN_PHOTOS: 'PHOTOS',
   HOST_VAN_PRICING: 'PRICING',
   HOST_VANS: 'HOST_VANS',
+  NOT_FOUND: 'NOT_FOUND',
   VAN: 'VAN',
   VANS: 'VANS',
 };
@@ -28,6 +29,7 @@ export const PATHS = {
   [ROUTES.HOST_VAN_DETAILS]: '',
   [ROUTES.HOST_VAN_PHOTOS]: 'photos',
   [ROUTES.HOST_VAN_PRICING]: 'pricing',
+  [ROUTES.NOT_FOUND]: '*',
   [ROUTES.VAN]: ':id',
   [ROUTES.VANS]: 'vans',
 };
