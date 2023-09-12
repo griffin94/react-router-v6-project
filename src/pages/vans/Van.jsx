@@ -17,7 +17,7 @@ const Van = () => {
                 className='text-decoration-underline'
                 to={'..' + (state?.search || '')}
               >
-                <i class='bi bi-arrow-left-circle me-2'></i>
+                <i className='bi bi-arrow-left-circle me-2'></i>
                 <span>Back to all vans</span>
               </Link>
               <Stack className='flex-column flex-md-row gap-2 gap-md-4'>
