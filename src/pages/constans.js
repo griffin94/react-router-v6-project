@@ -12,6 +12,7 @@ export const ROUTES = {
   HOST_VAN_PRICING: 'PRICING',
   HOST_VANS: 'HOST_VANS',
   NOT_FOUND: 'NOT_FOUND',
+  LOGIN: 'LOGIN',
   VAN: 'VAN',
   VANS: 'VANS',
 };
@@ -30,6 +31,7 @@ export const PATHS = {
   [ROUTES.HOST_VAN_PHOTOS]: 'photos',
   [ROUTES.HOST_VAN_PRICING]: 'pricing',
   [ROUTES.NOT_FOUND]: '*',
+  [ROUTES.LOGIN]: '/login',
   [ROUTES.VAN]: ':id',
   [ROUTES.VANS]: 'vans',
 };
@@ -46,6 +48,7 @@ export const NAMES = {
   [ROUTES.HOST_VANS]: 'Vans',
   [ROUTES.HOST_VAN_DETAILS]: 'Details',
   [ROUTES.HOST_VAN_PRICING]: 'Pricing',
+  [ROUTES.LOGIN]: 'Login',
   [ROUTES.VANS]: 'Vans',
 };
 
@@ -65,6 +68,10 @@ export const MAIN_NAV = [
   {
     path: PATHS[ROUTES.VANS],
     name: NAMES[ROUTES.VANS],
+  },
+  {
+    path: PATHS[ROUTES.LOGIN],
+    name: NAMES[ROUTES.LOGIN],
   },
 ];
 

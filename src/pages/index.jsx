@@ -4,8 +4,9 @@ import {
   createRoutesFromElements,
 } from 'react-router-dom';
 import { ROUTES, PATHS } from './constans';
-import { Dashboard } from './dashboard';
 import { About } from './about';
+import { Dashboard } from './dashboard';
+import { Error } from './error';
 import { Home } from './home';
 import {
   Host,
@@ -18,10 +19,10 @@ import {
   HostVan,
   HostVans,
 } from './host';
-import { Van, Vans } from './vans';
+import { Login } from './login';
 import { NotFound } from './notFound';
-import { Error } from './error';
-import { loader } from './api';
+import { Van, Vans } from './vans';
+import { loader, loginAction } from './api';
 
 // prettier-ignore
 const router = createBrowserRouter(
@@ -49,6 +50,7 @@ const router = createBrowserRouter(
         </Route>
       </Route>
       <Route path={PATHS[ROUTES.NOT_FOUND]} element={<NotFound />} />
+      <Route path={PATHS[ROUTES.LOGIN]} element={<Login />} action={loginAction} />
     </Route>
   )
 );

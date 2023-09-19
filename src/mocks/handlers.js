@@ -1,6 +1,7 @@
 import { rest } from 'msw';
 import vans from './vans';
 import reviews from './reviews';
+import users from './users';
 
 export const handlers = [
   rest.get('/vans', (req, res, ctx) => {
@@ -44,6 +45,20 @@ export const handlers = [
   rest.get('/host/vans/:id', (req, res, ctx) => {
     const id = req.params.id;
     const data = vans.find((van) => van.id === id);
+    return res(ctx.delay(500), ctx.status(200), ctx.json(data));
+  }),
+
+  rest.post('/login', async (req, res, ctx) => {
+    const payload = await req.json();
+    const user = users.find(
+      ({ email, password }) =>
+        email === payload.email && password === payload.password
+    );
+    const data = {
+      user: user || null,
+      error: user ? null : 'Email or password are incorrect',
+    };
+
     return res(ctx.delay(500), ctx.status(200), ctx.json(data));
   }),
 ];
