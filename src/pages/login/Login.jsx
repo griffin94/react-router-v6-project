@@ -26,7 +26,7 @@ const Login = () => {
           >
             <Form.Group
               className='mb-2'
-              controlId='exampleForm.ControlInput1'
+              controlId='email'
             >
               <Form.Label>Email address</Form.Label>
               <Form.Control
