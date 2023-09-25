@@ -3,8 +3,9 @@ import { Outlet } from 'react-router-dom';
 import { Footer, Header, Image, Nav } from '@/components';
 import cs from './Dashboard.module.scss';
 import cx from 'classnames';
-import { MAIN_NAV } from '..';
+import { MAIN_NAV, PATHS, ROUTES } from '..';
 import Logo from '/logo.jpg';
+import ProfileImg from '/Icon.svg';
 
 const Dashboard = () => (
   <div className={cx(cs.page)}>
@@ -22,7 +23,15 @@ const Dashboard = () => (
             to={path}
             key={path}
           >
-            {name}
+            {path === PATHS[ROUTES.LOGIN] ? (
+              <Image
+                src={ProfileImg}
+                alt='login'
+                auto
+              />
+            ) : (
+              name
+            )}
           </Nav.Item>
         ))}
       </Nav>

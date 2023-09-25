@@ -1,7 +1,9 @@
 import {
   Form as RouterForm,
+  Link,
   useActionData,
   useNavigation,
+  useLocation,
 } from 'react-router-dom';
 import { Col, Container, Form, Row, Spinner } from 'react-bootstrap';
 import { Button } from '@/components';
@@ -10,6 +12,7 @@ import { PATHS, ROUTES } from '../';
 const Login = () => {
   const data = useActionData();
   const navigation = useNavigation();
+  const { pathname, search } = useLocation();
   return (
     <Container className='p-4 flex-grow-1 d-flex flex-column justify-content-center position-relative'>
       <h2 className='text-center'>Sign in to your account</h2>
@@ -22,7 +25,8 @@ const Login = () => {
           <Form
             as={RouterForm}
             method='post'
-            action={PATHS[ROUTES.LOGIN]}
+            action={pathname + search}
+            replace={true}
           >
             <Form.Group
               className='mb-2'
@@ -56,9 +60,21 @@ const Login = () => {
           </Form>
         </Col>
       </Row>
-      <p className='text-center mt-5'>Don’t have an account? Create one now</p>
+      <p className='text-center mt-5'>
+        Don’t have an account?{' '}
+        <Link
+          to={PATHS[ROUTES.REGISTER]}
+          style={{
+            color: '#FF8C38',
+            textDecoration: 'underline',
+          }}
+        >
+          Create one now!
+        </Link>
+      </p>
     </Container>
   );
 };
+
 
 export default Login;
